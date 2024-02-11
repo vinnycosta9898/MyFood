@@ -2,6 +2,7 @@ import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/styles';
 import { SignIn } from './src/screens/SignIn';
+import { Home } from './src/screens/Home';
 
 export default function App() {
   return (
@@ -11,7 +12,7 @@ export default function App() {
         barStyle={'light-content'}
         translucent
       />
-      <SignIn/>
+      <Home/>
     </ThemeProvider>
   );
 }

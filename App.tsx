@@ -1,11 +1,17 @@
-import { Text } from 'react-native';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/styles';
+import { SignIn } from './src/screens/SignIn';
 
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar
+        backgroundColor="#000"
+        barStyle={'light-content'}
+        translucent
+      />
+      <SignIn/>
     </ThemeProvider>
   );
 }

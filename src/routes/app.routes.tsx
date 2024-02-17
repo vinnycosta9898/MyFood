@@ -6,6 +6,7 @@ import { useTheme } from 'styled-components/native';
 
 import { Home } from '../screens/Home';
 import { Feather, Ionicons } from '@expo/vector-icons';
+import { Reciepe } from '../screens/Reciepe';
 
 
 type AppRoutes = {
@@ -72,7 +73,7 @@ export default function AppRoutes() {
 
         <Screen
           name="reciepe"
-          component={Home}
+          component={Reciepe}
           options={{
             tabBarButton: () => null
           }}

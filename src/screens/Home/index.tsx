@@ -17,7 +17,7 @@ export function Home(){
 
   const navigation = useNavigation()
 
-  async function getListreciepes(){
+  async function getListReciepes(){
     const response = await api.get('/todas')
     console.log(response.data[0])
     setReciepes(response.data)
@@ -28,7 +28,7 @@ export function Home(){
   }
 
   useEffect(() => {
-    getListreciepes()  
+    getListReciepes()  
   }, [])
 
   return(
@@ -46,7 +46,6 @@ export function Home(){
               onPress={() => handleGoToReciepe(item.id)}             
             />
           )}  
-
         />
     </Container>
   )

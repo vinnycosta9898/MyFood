@@ -1,10 +1,15 @@
 import { StatusBar } from 'react-native';
+import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins'
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/styles';
-import { SignIn } from './src/screens/SignIn';
-import { Home } from './src/screens/Home';
+import { Routes } from './src/routes';
+import { Loading } from './src/components/Loading';
+import React from 'react';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular
+  })
   return (
     <ThemeProvider theme={theme}>
       <StatusBar
@@ -12,7 +17,7 @@ export default function App() {
         barStyle={'light-content'}
         translucent
       />
-      <Home/>
+       {fontsLoaded ? <Routes/> : <Loading/>}
     </ThemeProvider>
   );
 }

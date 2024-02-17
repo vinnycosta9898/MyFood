@@ -15,6 +15,10 @@ export const theme = {
       lg: 18,
       xlg: 24
   },
+  sizes: {
+    14: 56,
+    33: 148
+  },
   TEXT_DECORATION:{
       td: 'line-through'
   }

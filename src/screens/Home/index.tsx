@@ -1,8 +1,9 @@
 import { Container, TitleText } from "./styles";
 import { api } from "../../lib/axios";
 import { useEffect, useState } from "react";
-import { FlatList, ScrollView } from "react-native";
+import { FlatList } from "react-native";
 import { ReciepeCard } from "../../components/ReciepeCard";
+import { useNavigation } from "@react-navigation/native";
 
 interface ReciepesProps{
   id: string
@@ -14,10 +15,16 @@ interface ReciepesProps{
 export function Home(){
   const [reciepes, setReciepes] = useState<ReciepesProps[]>([])
 
+  const navigation = useNavigation()
+
   async function getListreciepes(){
     const response = await api.get('/todas')
     console.log(response.data[0])
     setReciepes(response.data)
+  }
+
+  function handleGoToReciepe(reciepeId: string){
+    navigation.navigate('reciepe', { reciepeId })
   }
 
   useEffect(() => {
@@ -34,9 +41,9 @@ export function Home(){
           renderItem={({ item }) => (
             <ReciepeCard
               key={item.id}
-              ingredientes={item.ingredientes}
               link_imagem={item.link_imagem}
-              receita={item.receita}              
+              receita={item.receita}
+              onPress={() => handleGoToReciepe(item.id)}             
             />
           )}  
 

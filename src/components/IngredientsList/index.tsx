@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { Container, RegularText, IngredientsContainer } from "./styles";
+import { Container, RegularText, IngredientsContainer, TitleText } from "./styles";
 
 interface IngredientListProps{
   ingredientes: string | undefined
@@ -8,13 +8,11 @@ interface IngredientListProps{
 export function IngredientsList({ ingredientes } : IngredientListProps){
   const ingredientsList = ingredientes?.split(",").map(item => item.trim())
 
-  console.log(ingredientsList)
-
   return(
     <Container>
-      <RegularText>
+      <TitleText>
         Ingredientes
-      </RegularText>
+      </TitleText>
       
       {ingredientsList && ingredientsList.map((item) => {
         return(

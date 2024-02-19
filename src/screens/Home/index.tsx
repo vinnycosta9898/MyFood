@@ -19,7 +19,6 @@ export function Home(){
 
   async function getListReciepes(){
     const response = await api.get('/todas')
-    console.log(response.data[0])
     setReciepes(response.data)
   }
 
@@ -38,6 +37,7 @@ export function Home(){
       </TitleText>
         <FlatList
           data={reciepes}
+          showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <ReciepeCard
               key={item.id}
